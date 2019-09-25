@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#Setting the variables that will be used.
+greeting="Welcome"
+user=$(whoami)
+day=$(date)
+#sort info from ifconfg, search only for inet.
+network=$(ifconfig|grep inet)
+
+weather=$(weather KAUS)
+
+#putting the vairables into syntax.
+echo "$greeting back $user! Today is $day"
+sleep 2s
+echo "it's looking like the forcast is $weather"
+sleep 2s
+echo "Your bash shell version is: $BASH_VERSION."
+echo "Let's do some updates!"
+sleep 2s
+echo "Your current network settings are: $network"
+sleep 2s
+sudo apt-get update
+sudo apt-get upgrade
+echo "You're good to go! Happy Coding!"
+
